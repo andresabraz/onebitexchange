@@ -1,5 +1,12 @@
 $(document).ready ->
 
+  $('#revert_selection').click ->
+    currency_source= $('#source_currency').val()
+    currency_target= $('#target_currency').val()
+
+    $('#source_currency').val(currency_target)
+    $('#target_currency').val(currency_source)
+
   $('form').submit ->
     if $('form').attr('action') == '/convert'
       $.ajax '/convert',
